@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mohamed Moubarak Weather Web App</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"> </script>
+  </head>
+  <body style="background-color:DarkBlue;">
+    <input id="city" type="text" placeholder="Search for a city" >  </input>
+      <button id="getWeatherForcast" style="background:red" style="color:white">submit</button>
+      <div id="showWeatherForcast"> </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript">
+      JQuery(document).ready(function() {
+        JQuery(#getWeatherForcast).click(function() {
+          var city = $(#city).val();
+          var key = '907d2aff1f8937189f71216a2c09e32c';
+
+          JQuery.ajax ({
+            url: 'http://api.openweathermap.org/data/2.5/weather',
+            dataType: 'json',
+            type: 'GET',
+            data: {q:city, appid: key, units: 'metric'},
+
+            success: function(data){
+              var wf ='';
+              JQuery.each(data.weather, function(index, val){
+                wf += '<p><b>' + data.name + "</b><img scr=>" + val.icon + " .png></p>"
+                  + data.main.temp + '&deg;C ' + ' | ' + val.main + ", " + val.description
+              })();
+              JQuery("#showWeatherForcast").html(wf);
+            }
+          })();
+        })();
+      })();
+    </script>
+  </body>
+</html>

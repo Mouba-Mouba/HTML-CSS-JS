@@ -1,0 +1,36 @@
+h1{
+  color: #084B8A;
+  text-align: center;
+}
+
+th{
+  background-color: #808080;
+  text-align:center;
+}
+
+#input1{
+  text-align: center;
+}
+#input2{
+  text-align: center;
+}
+
+#input3{
+  text-align: center;
+}
+
+#input4{
+  text-align: center;
+}
+table, th, td{
+  border: 1px solid black;
+
+}
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button{
+  background-color: #FAAC58;
+}
